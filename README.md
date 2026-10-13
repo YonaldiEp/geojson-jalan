@@ -1,9 +1,9 @@
-# Peta Rute Gojek Rp10.000
+# Peta Rute inDrive Rp10.000
 
 Tugas mata kuliah **Sistem Informasi Geografis** (Semester 5)
 **Nama:** Yonaldi Ernanda P | **NIM:** 714240028
 
-Aplikasi peta web yang menampilkan data jalan (GeoJSON LineString) rute **Kartini - Pasar Antri** dengan ongkos Gojek Rp10.000. Dibuat memakai [CrootJS](https://croot.js.org) (`map.js`) tanpa Leaflet atau library peta lain.
+Aplikasi peta web yang menampilkan data jalan (GeoJSON LineString) rute **Kartini - Pasar Antri** dengan tarif inDrive Rp10.000. Dibuat memakai [CrootJS](https://croot.js.org) (`map.js`) tanpa Leaflet atau library peta lain.
 
 **Demo:** https://yonaldiep.github.io/geojson-jalan/
 
@@ -23,6 +23,7 @@ geojson-jalan/
 ├── index.js
 ├── style.css
 ├── jalan10k-yonaldi-714240028.geojson
+├── screenshot-tarif.png
 └── README.md
 ```
 
@@ -32,6 +33,7 @@ geojson-jalan/
 | `index.js` | Logika peta (ES module, memakai CrootJS) |
 | `style.css` | Tampilan halaman |
 | `jalan10k-yonaldi-714240028.geojson` | Data jalan hasil gambar di geojson.io |
+| `screenshot-tarif.png` | Bukti tarif dari aplikasi inDrive |
 
 ## Data
 
@@ -77,7 +79,7 @@ Lalu buka `http://localhost:8000`.
 
 ## Tarif
 
-Estimasi tarif di halaman dihitung dengan asumsi Rp10.000 untuk 2 km pertama dan Rp4.000 per km berikutnya. Bukti tarif sebenarnya dari aplikasi Gojek: `screenshot-tarif.png` (tambahkan file ini ke repo).
+Tarif Rp10.000 diambil dari aplikasi inDrive untuk rute ini. Buktinya ada di `screenshot-tarif.png`.
 
 ## Tutorial
 
