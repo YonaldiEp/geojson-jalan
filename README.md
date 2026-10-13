@@ -1,109 +1,89 @@
-# 🗺️ Peta Jalan Gojek 10 Ribu
+# Peta Rute Gojek Rp10.000
 
-**Nama:** Yonaldi Ernanda P  
-**NIM:** 714240028  
-**Mata Kuliah:** Sistem Informasi Geografis — Semester 5  
+Tugas mata kuliah **Sistem Informasi Geografis** (Semester 5)
+**Nama:** Yonaldi Ernanda P | **NIM:** 714240028
 
----
+Aplikasi peta web yang menampilkan data jalan (GeoJSON LineString) rute **Kartini - Pasar Antri** dengan ongkos Gojek Rp10.000. Dibuat memakai [CrootJS](https://croot.js.org) (`map.js`) tanpa Leaflet atau library peta lain.
 
-## 📌 Tentang Proyek Ini
+**Demo:** https://yonaldiep.github.io/geojson-jalan/
 
-Aplikasi peta interaktif yang menampilkan **rute jalan yang memenuhi syarat minimal ongkos Gojek Rp10.000**, dibuat menggunakan library [**CrootJS**](https://croot.js.org) (croot.js.org).
+## Fitur
 
-> 🔗 **Live App:** [Lihat di GitHub Pages](https://YonaldiEp.github.io/geojson-jalan/)
+- Menampilkan garis rute di atas peta OpenStreetMap
+- Popup detail rute saat garis diklik (nama, panjang, tarif, jumlah titik)
+- Panel informasi rute di samping peta
+- Skala peta dan tombol zoom
+- Tombol unduh file GeoJSON
 
----
-
-## 🛵 Data Rute
-
-| Properti      | Nilai |
-|---------------|-------|
-| Nama Rute     | Kartini – Pasar Antri 10 Ribu |
-| Tipe Geometri | LineString (Polyline) |
-| Jumlah Titik  | 17 koordinat |
-| Wilayah       | Cimahi, Jawa Barat |
-
-Rute dibuat menggunakan **[geojson.io](https://geojson.io)** dengan menelusuri jalan sesungguhnya sesuai estimasi ongkos Gojek Rp10.000.
-
----
-
-## 🛠️ Teknologi
-
-| Library | Versi | Fungsi |
-|---------|-------|--------|
-| [CrootJS `map.js`](https://croot.js.org/docs/map) | 0.0.16 | Peta interaktif tanpa Leaflet |
-| [CrootJS `geo.js`](https://croot.js.org/docs/geo) | 0.0.16 | Baca data GeoJSON dari URL |
-| [CrootJS `geomeasure.js`](https://croot.js.org/docs/geomeasure) | 0.0.16 | Hitung panjang rute |
-| [CrootJS `mapcontrol.js`](https://croot.js.org/docs/mapcontrol) | 0.0.16 | Scale bar |
-
-**⚠️ WAJIB menggunakan CrootJS — tidak boleh menggunakan Leaflet atau library lain.**
-
----
-
-## 📁 Struktur File
+## Struktur File
 
 ```
 geojson-jalan/
-├── index.html                          # Halaman utama
-├── style.css                           # Styling dark mode premium
-├── index.js                            # Script utama (ES Module)
-├── jalan10k-yonaldi-714240028.geojson  # Data GeoJSON rute
-└── README.md                           # Dokumentasi ini
+├── index.html
+├── index.js
+├── style.css
+├── jalan10k-yonaldi-714240028.geojson
+└── README.md
 ```
 
----
+| File | Fungsi |
+|---|---|
+| `index.html` | Kerangka halaman |
+| `index.js` | Logika peta (ES module, memakai CrootJS) |
+| `style.css` | Tampilan halaman |
+| `jalan10k-yonaldi-714240028.geojson` | Data jalan hasil gambar di geojson.io |
 
-## 🚀 Cara Menjalankan Lokal
+## Data
 
-Karena menggunakan ES Module (`type="module"`), file harus dijalankan melalui HTTP server, bukan langsung double-click di browser.
+- Format: GeoJSON `FeatureCollection` berisi satu `LineString`
+- Properti: `Nama` = "Kartini - Pasar Antri 10 Ribu"
+- Jumlah titik: 17 koordinat
+- Panjang: sekitar 1,06 km (dihitung dengan `getLength`)
+- Dibuat dengan [geojson.io](https://geojson.io) memakai tool polyline
 
-### Cara 1 — VS Code Live Server
-1. Install ekstensi **Live Server** di VS Code
-2. Klik kanan `index.html` → **Open with Live Server**
+## Modul CrootJS yang Dipakai
 
-### Cara 2 — Python HTTP Server
+Semua diimpor dari jsDelivr dengan versi dipin (`@0.0.16`):
+
+| Modul | Fungsi yang dipakai |
+|---|---|
+| `map.min.js` | `createMap`, `getGeoJSON`, `addGeoJSON`, `fitMap` |
+| `geomeasure.min.js` | `getLength` |
+| `mapcontrol.min.js` | `addScaleBar` |
+
+## Konvensi CrootJS
+
+- HTML, CSS, dan JS dipisah dalam file masing-masing
+- JS dimuat sebagai `<script type="module">`
+- Tanpa `<style>`, `<script>`, `style=""`, atau `onclick` inline
+- Tidak memakai library JS selain CrootJS
+
+## Menjalankan Secara Lokal
+
+Karena memakai ES module dan `fetch`, halaman harus dibuka lewat server lokal (bukan klik dua kali pada `index.html`):
+
 ```bash
-cd "path/ke/folder/geojson-jalan"
 python -m http.server 8000
-# Buka: http://localhost:8000
 ```
 
-### Cara 3 — Node.js
-```bash
-npx serve .
-```
+Lalu buka `http://localhost:8000`.
 
----
+## Deploy ke GitHub Pages
 
-## 🌐 Deploy ke GitHub Pages
+1. Push semua file ke branch `main`
+2. Buka **Settings > Pages**
+3. Source: *Deploy from a branch*, branch `main`, folder `/ (root)`
+4. Tunggu beberapa menit, lalu buka link demo
 
-1. Pastikan file sudah di-commit dan push ke GitHub
-2. Buka **Settings** repo → **Pages**
-3. Source: pilih branch `main`, folder `/` (root)
-4. Klik **Save** → URL akan muncul dalam beberapa menit
+## Tarif
 
----
+Estimasi tarif di halaman dihitung dengan asumsi Rp10.000 untuk 2 km pertama dan Rp4.000 per km berikutnya. Bukti tarif sebenarnya dari aplikasi Gojek: `screenshot-tarif.png` (tambahkan file ini ke repo).
 
-## 📖 Cara Pakai Aplikasi
+## Tutorial
 
-1. Buka URL GitHub Pages
-2. **Klik garis rute** (berwarna hijau) di peta
-3. Popup akan menampilkan: nama rute, panjang, estimasi tarif
-4. Gunakan scroll/pinch untuk zoom in/out
-5. Geser peta untuk eksplorasi area sekitar
-6. Klik **"Unduh GeoJSON"** untuk download data
+- Artikel Medium: _tambahkan link di sini_
+- Video tutorial: _tambahkan link di sini_
 
----
+## Lisensi
 
-## 📝 Tutorial Medium
-
-Tutorial penggunaan CrootJS tersedia di Medium:  
-🔗 *(link akan diisi setelah artikel dipublikasikan)*
-
----
-
-## ⚖️ Lisensi
-
-Data GeoJSON dibuat sendiri untuk keperluan tugas akademik.  
-Library CrootJS: [MIT License](https://github.com/crootjs/lib/blob/main/LICENSE)  
-Peta dasar: © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors
+Peta dasar: © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright)

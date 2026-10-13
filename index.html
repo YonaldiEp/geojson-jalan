@@ -4,102 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Peta Jalan Gojek 10 Ribu — Yonaldi (714240028)</title>
-  <meta name="description" content="Peta rute jalan yang memenuhi syarat minimal ongkos Gojek Rp10.000 di wilayah Cimahi, dibuat dengan CrootJS map.js dan data GeoJSON.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Peta rute jalan dengan ongkos Gojek Rp10.000, dibuat dengan CrootJS map.js dan data GeoJSON.">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="index.js"></script>
 </head>
 <body>
-
-  <!-- ===== HEADER ===== -->
   <header class="site-header">
-    <div class="header-inner">
-      <div class="header-brand">
-        <span class="brand-icon">🗺️</span>
-        <div>
-          <h1 class="brand-title">Peta Rute Gojek <span class="badge-10k">Rp10.000</span></h1>
-          <p class="brand-sub">Data GeoJSON Jalan · SIG Semester 5 · Yonaldi Ernanda P (714240028)</p>
-        </div>
-      </div>
-      <div class="header-meta">
-        <span class="meta-chip">📍 Kartini – Pasar Antri</span>
-        <span class="meta-chip">🛵 Gojek</span>
-      </div>
-    </div>
+    <h1>Peta Rute Gojek Rp10.000</h1>
+    <p>Data GeoJSON Jalan, SIG Semester 5 - Yonaldi Ernanda P (714240028)</p>
   </header>
 
-  <!-- ===== INFO PANEL + MAP ===== -->
   <main class="layout">
     <aside class="panel">
-      <div class="panel-section">
-        <h2 class="panel-heading">ℹ️ Informasi Rute</h2>
-        <dl class="info-list">
-          <dt>Nama Rute</dt>
-          <dd id="nama-rute">Memuat data…</dd>
-          <dt>Panjang Jalan</dt>
-          <dd id="panjang-jalan">—</dd>
-          <dt>Estimasi Tarif</dt>
-          <dd id="estimasi-tarif">—</dd>
-          <dt>Jumlah Titik</dt>
-          <dd id="jml-titik">—</dd>
-        </dl>
-      </div>
+      <h2>Informasi Rute</h2>
+      <dl>
+        <dt>Nama Rute</dt>
+        <dd id="nama-rute">Memuat data…</dd>
+        <dt>Panjang Jalan</dt>
+        <dd id="panjang-jalan">-</dd>
+        <dt>Estimasi Tarif</dt>
+        <dd id="estimasi-tarif">-</dd>
+        <dt>Jumlah Titik</dt>
+        <dd id="jml-titik">-</dd>
+      </dl>
 
-      <div class="panel-section">
-        <h2 class="panel-heading">📋 Syarat Minimal Gojek</h2>
-        <ul class="criteria-list">
-          <li class="criteria-item"><span class="dot dot-green"></span>Tarif minimal <strong>Rp10.000</strong></li>
-          <li class="criteria-item"><span class="dot dot-green"></span>Jarak ≥ <strong>±2 km</strong></li>
-          <li class="criteria-item"><span class="dot dot-green"></span>Tipe: <strong>LineString</strong></li>
-          <li class="criteria-item"><span class="dot dot-green"></span>Data unik per mahasiswa</li>
-        </ul>
-      </div>
+      <h2>Syarat Tugas</h2>
+      <ul>
+        <li>Tarif Gojek Rp10.000</li>
+        <li>Tipe data: LineString</li>
+        <li>Data unik per mahasiswa</li>
+      </ul>
 
-      <div class="panel-section">
-        <h2 class="panel-heading">🛠️ Teknologi</h2>
-        <div class="tech-pills">
-          <a href="https://croot.js.org" target="_blank" class="tech-pill primary">croot.js.org</a>
-          <span class="tech-pill">GeoJSON</span>
-          <span class="tech-pill">OpenStreetMap</span>
-          <span class="tech-pill">GitHub Pages</span>
-        </div>
-      </div>
+      <h2>Cara Pakai</h2>
+      <ol>
+        <li>Klik garis rute di peta</li>
+        <li>Popup menampilkan detail rute</li>
+        <li>Scroll atau pinch untuk zoom</li>
+        <li>Geser peta untuk menjelajah</li>
+      </ol>
 
-      <div class="panel-section">
-        <h2 class="panel-heading">📖 Cara Pakai</h2>
-        <ol class="how-list">
-          <li>Klik garis rute di peta</li>
-          <li>Popup tampilkan detail rute</li>
-          <li>Scroll/pinch untuk zoom</li>
-          <li>Geser peta untuk eksplorasi</li>
-        </ol>
-      </div>
-
-      <div class="panel-footer">
-        <a href="jalan10k-yonaldi-714240028.geojson" download class="btn-download">⬇️ Unduh GeoJSON</a>
-        <a href="https://croot.js.org/docs/map" target="_blank" class="btn-docs">📄 Docs map.js</a>
-      </div>
+      <a class="btn-download" href="jalan10k-yonaldi-714240028.geojson" download>Unduh GeoJSON</a>
+      <p><a href="https://croot.js.org" target="_blank" rel="noopener">croot.js.org</a></p>
     </aside>
 
-    <!-- ===== MAP ===== -->
     <section class="map-wrapper">
-      <div id="peta" class="peta"></div>
-      <div class="map-overlay-bottom">
-        <span class="map-credit">
-          Peta: <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> ·
-          Library: <a href="https://croot.js.org" target="_blank">CrootJS map.js</a>
-        </span>
-      </div>
+      <div id="peta"></div>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
-    <p>Tugas Mata Kuliah <strong>Sistem Informasi Geografis</strong> · Semester 5 · Yonaldi Ernanda P · NIM 714240028</p>
-    <p>Dibuat menggunakan <a href="https://croot.js.org" target="_blank">CrootJS</a> (map.js + geomeasure.js) — Zero dependency, tanpa Leaflet</p>
+    Tugas Sistem Informasi Geografis - dibuat dengan CrootJS (map.js), tanpa Leaflet.
   </footer>
-
-  <script type="module" src="index.js"></script>
 </body>
 </html>
