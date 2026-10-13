@@ -14,11 +14,11 @@ body {
 }
 
 a {
-  color: #00873c;
+  color: #254132;
 }
 
 .site-header {
-  background: #00b14f;
+  background: #254132;
   color: #fff;
   padding: 12px 20px;
 }
@@ -73,7 +73,7 @@ a {
   display: inline-block;
   margin-top: 16px;
   padding: 8px 14px;
-  background: #00b14f;
+  background: #081f13;
   color: #fff;
   border-radius: 6px;
   text-decoration: none;
