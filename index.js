@@ -5,10 +5,10 @@ import { getLength }
 import { addScaleBar }
   from "https://cdn.jsdelivr.net/gh/crootjs/lib@0.0.16/mapcontrol.min.js";
 
-const GEOJSON_URL = "jalan10k-yonaldi-714240028.geojson";
+const GEOJSON_URL = "jalan-714240028.geojson";
 
-// Samakan dengan tarif di screenshot-tarif.png
-const TARIF_INDRIVE = 10000;
+// Samakan dengan tarif di screenshot ojek online
+const TARIF_OJOL = 10000;
 
 createMap("peta", {
   center: [107.537, -6.884],
@@ -18,7 +18,7 @@ addScaleBar("peta", "bottom-left");
 
 const loadEl = document.createElement("div");
 loadEl.className = "loading";
-loadEl.textContent = "Memuat data GeoJSON…";
+loadEl.textContent = "Memuat data…";
 document.querySelector(".map-wrapper").appendChild(loadEl);
 
 getGeoJSON(GEOJSON_URL, (response) => {
@@ -42,7 +42,7 @@ getGeoJSON(GEOJSON_URL, (response) => {
   });
 
   fitMap("peta", geojson);
-  updateInfoPanel(geojson);
+  isiPanel(geojson);
 });
 
 function formatRupiah(angka) {
@@ -66,18 +66,18 @@ function buatPopup(feature) {
 
   const judul = document.createElement("div");
   judul.className = "popup-judul";
-  judul.textContent = feature.properties.Nama || "Rute inDrive";
+  judul.textContent = feature.properties.Nama || "Rute";
 
   box.append(
     judul,
     buatBaris("Panjang", (panjang / 1000).toFixed(2) + " km"),
-    buatBaris("Tarif inDrive", formatRupiah(TARIF_INDRIVE)),
-    buatBaris("Titik", feature.geometry.coordinates.length + " koordinat")
+    buatBaris("Jumlah titik", feature.geometry.coordinates.length),
+    buatBaris("Tarif ojek online", formatRupiah(TARIF_OJOL))
   );
   return box;
 }
 
-function updateInfoPanel(geojson) {
+function isiPanel(geojson) {
   const fitur = geojson.features[0];
   if (!fitur) return;
 
@@ -85,7 +85,7 @@ function updateInfoPanel(geojson) {
   document.getElementById("nama-rute").textContent = fitur.properties.Nama || "-";
   document.getElementById("panjang-jalan").textContent =
     (panjangM / 1000).toFixed(2) + " km (" + Math.round(panjangM) + " m)";
-  document.getElementById("tarif").textContent = formatRupiah(TARIF_INDRIVE);
   document.getElementById("jml-titik").textContent =
-    fitur.geometry.coordinates.length + " titik koordinat";
+    fitur.geometry.coordinates.length + " titik";
+  document.getElementById("tarif").textContent = formatRupiah(TARIF_OJOL);
 }

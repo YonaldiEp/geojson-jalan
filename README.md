@@ -1,68 +1,53 @@
-# Peta Rute inDrive Rp10.000
+# Peta Rute Jalan
 
-Tugas mata kuliah **Sistem Informasi Geografis** (Semester 5)
-**Nama:** Yonaldi Ernanda P | **NIM:** 714240028
+Tugas Sistem Informasi Geografis, Semester 5
+Yonaldi Ernanda P (714240028)
 
-Aplikasi peta web yang menampilkan data jalan (GeoJSON LineString) rute **Kartini - Pasar Antri** dengan tarif inDrive Rp10.000. Dibuat memakai [CrootJS](https://croot.js.org) (`map.js`) tanpa Leaflet atau library peta lain.
+Peta web yang menampilkan rute jalan **Kartini - Pasar Antri** dari data GeoJSON. Dibuat dengan [CrootJS](https://croot.js.org), tanpa Leaflet atau library peta lain.
 
-**Demo:** https://yonaldiep.github.io/geojson-jalan/
+Demo: https://yonaldiep.github.io/geojson-jalan/
 
-## Fitur
-
-- Menampilkan garis rute di atas peta OpenStreetMap
-- Popup detail rute saat garis diklik (nama, panjang, tarif, jumlah titik)
-- Panel informasi rute di samping peta
-- Skala peta dan tombol zoom
-- Tombol unduh file GeoJSON
-
-## Struktur File
+## Isi repo
 
 ```
 geojson-jalan/
 ├── index.html
 ├── index.js
 ├── style.css
-├── jalan10k-yonaldi-714240028.geojson
+├── jalan-714240028.geojson
 ├── screenshot-tarif.png
 └── README.md
 ```
 
-| File | Fungsi |
+| File | Isi |
 |---|---|
 | `index.html` | Kerangka halaman |
-| `index.js` | Logika peta (ES module, memakai CrootJS) |
-| `style.css` | Tampilan halaman |
-| `jalan10k-yonaldi-714240028.geojson` | Data jalan hasil gambar di geojson.io |
-| `screenshot-tarif.png` | Bukti tarif dari aplikasi inDrive |
+| `index.js` | Logika peta dengan CrootJS (ES module) |
+| `style.css` | Tampilan |
+| `jalan-714240028.geojson` | Data jalan, digambar di geojson.io |
+| `screenshot-tarif.png` | Bukti tarif ojek online |
 
 ## Data
 
-- Format: GeoJSON `FeatureCollection` berisi satu `LineString`
-- Properti: `Nama` = "Kartini - Pasar Antri 10 Ribu"
-- Jumlah titik: 17 koordinat
-- Panjang: sekitar 1,06 km (dihitung dengan `getLength`)
-- Dibuat dengan [geojson.io](https://geojson.io) memakai tool polyline
+- Satu `LineString` dengan 17 titik koordinat
+- Properti `Nama`: "Kartini - Pasar Antri 10 Ribu"
+- Panjang sekitar 1,06 km (dihitung dengan `getLength`)
 
-## Modul CrootJS yang Dipakai
+## Modul CrootJS
 
-Semua diimpor dari jsDelivr dengan versi dipin (`@0.0.16`):
+Diimpor dari jsDelivr, versi dipin ke `0.0.16`.
 
-| Modul | Fungsi yang dipakai |
+| Modul | Fungsi |
 |---|---|
 | `map.min.js` | `createMap`, `getGeoJSON`, `addGeoJSON`, `fitMap` |
 | `geomeasure.min.js` | `getLength` |
 | `mapcontrol.min.js` | `addScaleBar` |
 
-## Konvensi CrootJS
+Mengikuti konvensi CrootJS: HTML, CSS, dan JS dipisah, JS dimuat sebagai module, tanpa kode inline, dan tanpa library JS lain.
 
-- HTML, CSS, dan JS dipisah dalam file masing-masing
-- JS dimuat sebagai `<script type="module">`
-- Tanpa `<style>`, `<script>`, `style=""`, atau `onclick` inline
-- Tidak memakai library JS selain CrootJS
+## Menjalankan lokal
 
-## Menjalankan Secara Lokal
-
-Karena memakai ES module dan `fetch`, halaman harus dibuka lewat server lokal (bukan klik dua kali pada `index.html`):
+Halaman memakai ES module dan `fetch`, jadi harus dibuka lewat server lokal:
 
 ```bash
 python -m http.server 8000
@@ -70,22 +55,13 @@ python -m http.server 8000
 
 Lalu buka `http://localhost:8000`.
 
-## Deploy ke GitHub Pages
-
-1. Push semua file ke branch `main`
-2. Buka **Settings > Pages**
-3. Source: *Deploy from a branch*, branch `main`, folder `/ (root)`
-4. Tunggu beberapa menit, lalu buka link demo
-
 ## Tarif
 
-Tarif Rp10.000 diambil dari aplikasi inDrive untuk rute ini. Buktinya ada di `screenshot-tarif.png`.
+Tarif Rp10.000 adalah konstanta `TARIF_OJOL` di `index.js`, disamakan dengan screenshot aplikasi ojek online di `screenshot-tarif.png`. Bukan tarif resmi.
 
 ## Tutorial
 
-- Artikel Medium: _tambahkan link di sini_
-- Video tutorial: _tambahkan link di sini_
+- Artikel Medium: _isi link_
+- Video: _isi link_
 
-## Lisensi
-
-Peta dasar: © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright)
+Peta dasar © OpenStreetMap contributors.

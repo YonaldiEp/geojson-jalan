@@ -7,75 +7,71 @@
 body {
   font-family: system-ui, sans-serif;
   color: #222;
-  background: #f5f5f5;
+  background: #fff;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 a {
-  color: #254132;
+  color: #0a7a3d;
 }
 
 .site-header {
-  background: #254132;
-  color: #fff;
-  padding: 12px 20px;
+  padding: 14px 20px;
+  border-bottom: 3px solid #00b14f;
 }
 
 .site-header h1 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
 }
 
 .site-header p {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  color: #555;
   margin-top: 2px;
 }
 
 .layout {
   flex: 1;
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 280px 1fr;
 }
 
 .panel {
-  background: #fff;
+  padding: 18px 20px;
   border-right: 1px solid #ddd;
-  padding: 16px;
 }
 
 .panel h2 {
   font-size: 1rem;
-  margin: 16px 0 8px;
-}
-
-.panel h2:first-child {
-  margin-top: 0;
+  margin-bottom: 12px;
 }
 
 .panel dt {
   font-size: 0.8rem;
   color: #666;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .panel dd {
   font-weight: 600;
 }
 
-.panel ul,
-.panel ol {
-  padding-left: 20px;
-  line-height: 1.6;
+.hint {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
 }
 
 .btn-download {
   display: inline-block;
-  margin-top: 16px;
+  margin-top: 18px;
   padding: 8px 14px;
-  background: #081f13;
+  background: #00b14f;
   color: #fff;
-  border-radius: 6px;
+  border-radius: 4px;
   text-decoration: none;
 }
 
@@ -116,11 +112,10 @@ a {
 }
 
 .site-footer {
-  background: #fff;
-  border-top: 1px solid #ddd;
   padding: 12px 20px;
+  border-top: 1px solid #ddd;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #555;
 }
 

@@ -3,48 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peta Jalan inDrive 10 Ribu — Yonaldi (714240028)</title>
-  <meta name="description" content="Peta rute jalan dengan ongkos inDrive Rp10.000, dibuat dengan CrootJS map.js dan data GeoJSON.">
+  <title>Peta Rute Jalan — Yonaldi (714240028)</title>
+  <meta name="description" content="Peta rute jalan Kartini - Pasar Antri dari data GeoJSON, dibuat dengan CrootJS.">
   <link rel="stylesheet" href="style.css">
   <script type="module" src="index.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <h1>Peta Rute inDrive Rp10.000</h1>
-    <p>Data GeoJSON Jalan, SIG Semester 5 - Yonaldi Ernanda P (714240028)</p>
+    <h1>Peta Rute Jalan</h1>
+    <p>Kartini - Pasar Antri · Yonaldi Ernanda P (714240028)</p>
   </header>
 
   <main class="layout">
     <aside class="panel">
-      <h2>Informasi Rute</h2>
+      <h2>Detail Rute</h2>
       <dl>
-        <dt>Nama Rute</dt>
+        <dt>Nama rute</dt>
         <dd id="nama-rute">Memuat data…</dd>
-        <dt>Panjang Jalan</dt>
+        <dt>Panjang</dt>
         <dd id="panjang-jalan">-</dd>
-        <dt>Tarif inDrive</dt>
-        <dd id="tarif">-</dd>
-        <dt>Jumlah Titik</dt>
+        <dt>Jumlah titik</dt>
         <dd id="jml-titik">-</dd>
+        <dt>Tarif ojek online</dt>
+        <dd id="tarif">-</dd>
       </dl>
 
-      <h2>Syarat Tugas</h2>
-      <ul>
-        <li>Tarif inDrive Rp10.000</li>
-        <li>Tipe data: LineString</li>
-        <li>Data unik per mahasiswa</li>
-      </ul>
+      <p class="hint">Klik garis hijau di peta untuk melihat popup detail rute.</p>
 
-      <h2>Cara Pakai</h2>
-      <ol>
-        <li>Klik garis rute di peta</li>
-        <li>Popup menampilkan detail rute</li>
-        <li>Scroll atau pinch untuk zoom</li>
-        <li>Geser peta untuk menjelajah</li>
-      </ol>
-
-      <a class="btn-download" href="jalan10k-yonaldi-714240028.geojson" download>Unduh GeoJSON</a>
-      <p><a href="https://croot.js.org" target="_blank" rel="noopener">croot.js.org</a></p>
+      <a class="btn-download" href="jalan-714240028.geojson" download>Unduh GeoJSON</a>
     </aside>
 
     <section class="map-wrapper">
@@ -53,7 +39,7 @@
   </main>
 
   <footer class="site-footer">
-    Tugas Sistem Informasi Geografis - dibuat dengan CrootJS (map.js), tanpa Leaflet.
+    Tugas Sistem Informasi Geografis · dibuat dengan <a href="https://croot.js.org" target="_blank" rel="noopener">CrootJS</a>
   </footer>
 </body>
 </html>
