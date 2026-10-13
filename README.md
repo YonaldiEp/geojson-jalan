@@ -61,7 +61,6 @@ Tarif Rp10.000 adalah konstanta `TARIF_OJOL` di `index.js`, disamakan dengan scr
 
 ## Tutorial
 
-- Artikel Medium: _isi link_
-- Video: _isi link_
+- Artikel Medium: https://medium.com/@yonaldiernandaputro/membuat-peta-rute-dari-geojson-dengan-crootjs-dan-github-pages-d9cf8f4a2f90?sharedUserId=yonaldiernandaputro
 
 Peta dasar © OpenStreetMap contributors.
